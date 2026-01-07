@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trips – Triply</title>
 
   <!-- CSS -->
@@ -18,20 +19,23 @@
   <header class="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="logo">Triply</a>
-
+  
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">Home</a>
         <a href="add-trip.html" class="nav-link">Add Trip</a>
-        <a href="trips.html" class="nav-link active">Trips</a>
+        <a href="trips.html" class="nav-link">Trips</a>
         <a href="about.html" class="nav-link">About</a>
       </nav>
-
+  
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  
       <div class="nav-actions">
         <a href="#" class="btn login">Login</a>
         <a href="add-trip.html" class="btn primary">Make Plan</a>
       </div>
     </div>
   </header>
+  
 
   <!-- MAIN -->
   <main class="page trips-page">
@@ -112,6 +116,7 @@
 
   <!-- JS -->
   <script src="js/trips.js"></script>
+  <script src="js/navbar.js"></script>
 
 </body>
 </html>

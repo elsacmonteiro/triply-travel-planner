@@ -19,3 +19,4 @@ form.addEventListener("submit", function (e) {
   alert("Trip added successfully!");
   form.reset();
 });
+

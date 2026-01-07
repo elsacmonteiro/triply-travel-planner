@@ -865,4 +865,206 @@ p, a, input, select, button {
   }
 }
 
+/* =====================================================
+   NAVBAR MOBILE
+===================================================== */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE BREAKPOINT
+========================= */
+
+@media (max-width: 768px) {
+
+  /* -------- PAGES -------- */
+
+  .page,
+  .trips-page,
+  .add-trip-page {
+    padding: 120px 16px 80px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .page-header p {
+    font-size: 15px;
+  }
+
+  /* -------- FORMS / FILTERS -------- */
+
+  .filters-card {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  
+  .filters-card input,
+  .filters-card select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .filters-card button {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  #searchInput {
+    padding: 11px 16px;
+  }
+
+  .filters-card button {
+    margin-top: 6px;
+  }
+  
+
+  /* -------- GRIDS -------- */
+
+  .trips-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* -------- CARDS -------- */
+
+  .trip-card {
+    padding: 22px;
+  }
+
+  .trip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .trip-badge {
+    align-self: flex-start;
+  }
+
+  /* -------- NAVBAR -------- */
+
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .navbar-inner {
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 28px;
+    z-index: 20;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border: 2px solid var(--purple);
+    color: var(--purple);
+    font-size: 22px;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 72px;
+    right: 20px;
+
+    background: white;
+    border-radius: 20px;
+    padding: 16px;
+
+    width: 220px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-link {
+    background: rgba(47, 19, 107, 0.08);
+    color: var(--purple);
+
+    padding: 12px 16px;
+    border-radius: 999px;
+
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .nav-link.active {
+    background: var(--purple);
+    color: white;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  /* -------- HERO MOBILE -------- */
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 140px;
+  }
+
+  .hero-text {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 9vw, 56px);
+  }
+
+  .hero-description {
+    max-width: 90%;
+  }
+
+  .hero-image {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 90%;
+  }
+
+  .hero-circles {
+    opacity: 0.55;
+  }
+
+}
+
+
+
 
