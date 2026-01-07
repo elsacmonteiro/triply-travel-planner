@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trips – Triply</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">Triply</a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="add-trip.html" class="nav-link">Add Trip</a>
+        <a href="trips.html" class="nav-link active">Trips</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#" class="btn login">Login</a>
+        <a href="add-trip.html" class="btn primary">Make Plan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page trips-page">
+
+    <div class="trips-container">
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <h1>Your Trips</h1>
+        <p>Manage and view all your planned adventures.</p>
+      </header>
+
+      <!-- FILTERS -->
+      <section class="filters-card">
+
+        <!-- Inputs -->
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search destination..."
+        >
+
+        <select id="monthSelect">
+          <option value="">All Months</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+
+        <select id="yearSelect">
+          <option value="">All Years</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select>
+
+        <select id="sortSelect">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+
+        <!-- Actions -->
+        <div class="filters-actions">
+          <button id="applyFilters" class="btn primary">Apply</button>
+          <button id="clearFilters" class="btn login">Clear</button>
+        </div>
+
+      </section>
+
+      <!-- TRIPS GRID -->
+      <section id="tripsContainer" class="trips-grid"></section>
+
+    </div>
+
+  </main>
+
+  <!-- MODAL -->
+  <div id="tripModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" aria-label="Close">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Triply — Your Travel Planner</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/trips.js"></script>
+
+</body>
+</html>

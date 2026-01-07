@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Trip – Triply</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo">Triply</a>
+
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="add-trip.html" class="nav-link">Add Trip</a>
+      <a href="trips.html" class="nav-link">Trips</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#" class="btn login">Login</a>
+      <a href="add-trip.html" class="btn primary">Make Plan</a>
+    </div>
+  </div>
+</header>
+
+
+<main class="page add-trip-page">
+
+  <header class="page-header">
+    <h1>Plan a New Trip</h1>
+    <p>Fill in the details below to add a new adventure.</p>
+  </header>
+
+  <section class="card">
+    <form id="tripForm" class="trip-form">
+
+      <div class="form-row">
+        <label>
+          Destination
+          <input type="text" name="destination" required>
+        </label>
+
+        <label>
+          Country
+          <input type="text" name="country" required>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Start Date
+          <input type="date" name="startDate" required>
+        </label>
+
+        <label>
+          End Date
+          <input type="date" name="endDate" required>
+        </label>
+      </div>
+
+      <label>
+        Trip Type
+        <select name="type">
+          <option>Vacation</option>
+          <option>Business</option>
+          <option>Adventure</option>
+          <option>Family</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Notes
+        <textarea name="notes" placeholder="Optional notes..."></textarea>
+      </label>
+
+      <button type="submit" class="btn primary full">
+        Add Trip
+      </button>
+
+    </form>
+  </section>
+
+</main>
+
+<script src="js/add-trip.js"></script>
+</body>
+</html>
+
