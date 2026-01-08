@@ -18,8 +18,13 @@
   --section-spacing: 140px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -110,6 +115,11 @@ p, a, input, select, button {
   display: flex;
   gap: 12px;
 }
+
+.nav-toggle {
+  display: none;
+}
+
 
 /* =====================================================
    BUTTONS
@@ -832,55 +842,18 @@ p, a, input, select, button {
 }
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE (GLOBAL)
 ===================================================== */
 
-@media (max-width: 900px) {
-  .hero-content-wrapper {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-image-float {
-    display: none;
-  }
-}
+/* ---------- TABLET ---------- */
 
 @media (max-width: 900px) {
   .trips-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .filters-card {
-    grid-template-columns: 1fr;
-    border-radius: 32px;
-  }
 }
 
-@media (max-width: 600px) {
-  .trips-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =====================================================
-   NAVBAR MOBILE
-===================================================== */
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 26px;
-  color: var(--purple);
-  cursor: pointer;
-}
-
-/* =========================
-   MOBILE BREAKPOINT
-========================= */
+/* ---------- MOBILE ---------- */
 
 @media (max-width: 768px) {
 
@@ -905,34 +878,30 @@ p, a, input, select, button {
     font-size: 15px;
   }
 
-  /* -------- FORMS / FILTERS -------- */
+  /* -------- FILTERS -------- */
 
   .filters-card {
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 100%;
+    padding: 16px;
+    gap: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 24px;
   }
-  
+
   .filters-card input,
-  .filters-card select {
+  .filters-card select,
+  .filters-card button {
     width: 100%;
-    padding: 12px 16px;
+    padding: 12px 14px;
     font-size: 14px;
   }
-  
-  .filters-card button {
-    width: 100%;
-    padding: 14px 16px;
-    font-size: 15px;
-  }
 
-  #searchInput {
-    padding: 11px 16px;
+  .filters-card button + button {
+    margin-top: 8px;
   }
-
-  .filters-card button {
-    margin-top: 6px;
-  }
-  
 
   /* -------- GRIDS -------- */
 
@@ -957,52 +926,68 @@ p, a, input, select, button {
     align-self: flex-start;
   }
 
-  /* -------- NAVBAR -------- */
+  /* =====================================================
+     NAVBAR MOBILE
+  ===================================================== */
 
   .navbar {
-    padding: 16px 20px;
+    padding: 16px;
+    width: 100%;
   }
 
   .navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .logo {
     font-size: 28px;
-    z-index: 20;
+    z-index: 101;
   }
 
   .nav-toggle {
-    display: block;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    background: white;
     border: 2px solid var(--purple);
     color: var(--purple);
+
     font-size: 22px;
-    font-weight: 700;
-    padding: 8px 12px;
     border-radius: 12px;
     cursor: pointer;
-    z-index: 20;
+
+    z-index: 101;
   }
 
   .nav-menu {
     display: none;
-    position: absolute;
+
+    position: fixed;
     top: 72px;
-    right: 20px;
+    right: 16px;
+
+    width: 240px;
 
     background: white;
     border-radius: 20px;
     padding: 16px;
 
-    width: 220px;
-
     flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    gap: 10px;
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    z-index: 100;
   }
 
   .nav-menu.open {
@@ -1029,7 +1014,9 @@ p, a, input, select, button {
     display: none;
   }
 
-  /* -------- HERO MOBILE -------- */
+  /* =====================================================
+     HERO MOBILE
+  ===================================================== */
 
   .hero-inner {
     grid-template-columns: 1fr;
@@ -1060,11 +1047,18 @@ p, a, input, select, button {
   }
 
   .hero-circles {
-    opacity: 0.55;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
-
+  
 }
 
+/* ---------- VERY SMALL SCREENS ---------- */
 
-
-
+@media (max-width: 600px) {
+  .trips-grid {
+    grid-template-columns: 1fr;
+  }
+}
