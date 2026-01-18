@@ -16,6 +16,8 @@
   --white: #ffffff;
 
   --section-spacing: 140px;
+
+  --btn-height: 36px;
 }
 
 * {
@@ -41,6 +43,25 @@ p, a, input, select, button {
   font-family: "Montserrat", sans-serif;
 }
 
+label {
+  font-family: "Montserrat", sans-serif;
+}
+
+input,
+select,
+textarea {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(47, 19, 107, 0.45);
+}
 
 /* =====================================================
    NAVBAR
@@ -126,20 +147,28 @@ p, a, input, select, button {
 ===================================================== */
 
 .btn {
-  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: var(--btn-height); 
+  padding: 0 18px;      
+
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
+
   cursor: pointer;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
+
 /* LOGIN */
 
 .btn.login {
   background: transparent;
-  border: 1.5px solid #2f136b; /* roxo marca */
+  border: 1.5px solid #2f136b;
   color: #2f136b;
 }
 
@@ -164,16 +193,20 @@ p, a, input, select, button {
   transform: translateY(-1px);
 }
 
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* =====================================================
    HERO
 ===================================================== */
 
 .hero {
-  min-height: 100vh;
   background: var(--bg);
   position: relative;
   overflow: hidden;
-  margin-bottom: var(--section-spacing);
 }
 
 .hero-inner {
@@ -281,6 +314,7 @@ p, a, input, select, button {
 /* =====================================================
    CIRCLES
 ===================================================== */
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -413,18 +447,18 @@ p, a, input, select, button {
 }
 
 /* =====================================================
-   PAGES (GLOBAL)
+   GLOBAL PAGES
 ===================================================== */
 
 .page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 120px 24px 100px;
+  padding: 140px 24px 100px;
 }
 
 .page-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
 .page-header h1 {
@@ -441,37 +475,335 @@ p, a, input, select, button {
   color: rgba(47, 19, 107, 0.75);
 }
 
-/* =====================================================
-   ADD TRIP PAGE
-===================================================== */
-
-.add-trip-page .trip-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.card {
+  padding: 40px;
+  border-radius: 32px;
 }
 
-.add-trip-page .form-row {
+/* =====================================================
+   ADD TRIP PAGE – CLEAN & POLISHED
+===================================================== */
+
+.add-trip-page {
+  padding: 140px 24px 100px;
+}
+
+/* ---------- HEADER ---------- */
+
+.add-trip-page .page-header {
+  max-width: 1100px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.add-trip-page .page-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+
+.add-trip-page .page-header p {
+  font-size: 16px;
+  color: rgba(47, 19, 107, 0.75);
+}
+
+/* ---------- LAYOUT ---------- */
+
+.add-trip-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 24px;
+
+  align-items: start;
+}
+
+
+/* ---------- CARD BASE ---------- */
+
+.add-trip-page .card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.12);
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.trip-form {
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-.add-trip-page .form-row label {
+.trip-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+/* ---------- INPUTS ---------- */
+
+.trip-form input,
+.trip-form select,
+.trip-form textarea {
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.15);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+
+.trip-form input::placeholder,
+.trip-form textarea::placeholder {
+  color: rgba(47, 19, 107, 0.4);
+}
+
+.trip-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ---------- FILE INPUT ---------- */
+
+.trip-form input[type="file"] {
+  padding: 10px;
+  font-size: 13px;
+  background: #fff;
+}
+
+/* ---------- SUBMIT ---------- */
+
+.trip-form .btn.full {
+  width: 100%;
+  margin-top: 12px;
+  padding: 16px;
+  font-size: 15px;
+}
+
+/* =====================================================
+   PLACES TO VISIT
+===================================================== */
+
+.places-input {
+  display: flex;
+  gap: 12px;
+}
+
+.places-input input {
   flex: 1;
 }
+
+.places-input button {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  background: transparent;
+  color: var(--purple);
+
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.places-input button:hover {
+  background: var(--purple);
+  color: #fff;
+}
+
+#placesList {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+#placesList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 14px;
+  color: rgba(47, 19, 107, 0.85);
+}
+
+.remove-place {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =====================================================
+   POPULAR COUNTRIES CARD
+===================================================== */
+
+.highlights-card h3 {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--purple);
+  gap: 20px;
+}
+
+/* ---------- SEGMENTED CONTROL ---------- */
+
+.segmented-control {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.segmented-control button {
+  flex: 1;
+  padding: 10px 0;
+
+  border-radius: 999px;
+  border: 2px solid var(--purple);
+  background: transparent;
+  color: var(--purple);
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.segmented-control button.active {
+  background: var(--purple);
+  color: #fff;
+}
+
+/* ---------- COUNTRY CARD ---------- */
+
+.country-item {
+  display: none;
+}
+
+.country-item.active {
+  display: block;
+}
+
+.country-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+
+.country-item h4 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  color: var(--purple);
+}
+
+.country-item p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(47, 19, 107, 0.75);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+  .add-trip-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* ===============================
+     ADD TRIP PAGE
+  =============================== */
+
+  .add-trip-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .form-card,
+  .highlights-card {
+    padding: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trip-form {
+    gap: 20px;
+  }
+
+  /* Places to visit */
+  .places-input {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .places-input button {
+    width: 100%;
+    height: 44px;
+    border-radius: 999px;
+  }
+
+  /* Segmented control */
+  .segmented-control {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .segmented-control button {
+    width: 100%;
+  }
+
+  .country-item img {
+    height: 180px;
+  }
+}
+
 
 /* =====================================================
    TRIPS PAGE
 ===================================================== */
 
 .trips-page {
-  padding-top: 140px;
+  padding : 140px 24px 100px;
 }
 
 .trips-container {
   display: flex;
   flex-direction: column;
-  gap: 72px;
 }
 
 /* ===============================
@@ -491,6 +823,7 @@ p, a, input, select, button {
   grid-template-columns: 1.6fr 1fr 1fr 1fr auto auto;
   gap: 16px;
   align-items: center;
+  margin-bottom: 56px;
 }
 
 .filters-card input,
@@ -519,7 +852,7 @@ p, a, input, select, button {
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 /* ===============================
@@ -530,6 +863,7 @@ p, a, input, select, button {
   background: rgba(255,255,255,0.75);
   border-radius: 28px;
   padding: 26px;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -576,6 +910,49 @@ p, a, input, select, button {
   border-radius: 14px;
 }
 
+.trip-upcoming {
+  border: 2px solid var(--accent);
+  background: linear-gradient(
+    180deg,
+    rgba(217,70,104,0.08),
+    rgba(255,255,255,0.75)
+  );
+}
+
+.trip-past {
+  opacity: 0.5;
+  position: relative;
+}
+
+.trip-past::after {
+  content: "✔";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  color: #2e7d32;
+}
+
+/* =====================================================
+   BACKGROUND Countries
+===================================================== */
+
+.trip-card {
+  background-size: cover;
+  background-position: center;
+}
+
+.trip-bg-france {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url("../images/countries/france.jpg");
+}
+
+.trip-bg-japan {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url("../images/countries/japan.jpg");
+}
+
 /* ===============================
    TRIP STATES
 ================================ */
@@ -609,6 +986,7 @@ p, a, input, select, button {
   font-weight: 500;
   padding: 6px 12px;
   border-radius: 999px;
+  align-self: flex-start;
 }
 
 .trip-badge.vacation {
@@ -654,6 +1032,48 @@ p, a, input, select, button {
   text-decoration: none;
 }
 
+/* =====================================================
+   TRIP ACTIONS (EDIT / DELETE)
+===================================================== */
+
+.trip-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.trip-actions .edit {
+  background: rgba(47,19,107,0.1);
+  color: var(--purple);
+}
+
+.trip-actions .delete {
+  background: rgba(217,70,104,0.15);
+  color: var(--accent);
+}
+
+/* =====================================================
+   PAGINATION
+===================================================== */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.pagination button.active {
+  background: var(--purple);
+  color: white;
+}
+
 /* ===============================
    MODAL
 ================================ */
@@ -666,6 +1086,7 @@ p, a, input, select, button {
   align-items: center;
   justify-content: center;
   z-index: 999;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .modal.hidden {
@@ -674,11 +1095,17 @@ p, a, input, select, button {
 
 .modal-card {
   background: #ffffff;
-  padding: 32px;
-  border-radius: 24px;
-  max-width: 420px;
+  padding: 36px;
+  border-radius: 28px;
   width: 90%;
+  max-width: 520px;
+
+  box-shadow: 0 30px 70px rgba(0,0,0,0.25);
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 #closeModal {
@@ -691,6 +1118,93 @@ p, a, input, select, button {
   cursor: pointer;
 }
 
+.trip-menu {
+  position: relative;
+}
+
+.trip-menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--purple);
+}
+
+.trip-menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 28px;
+
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+
+  overflow: hidden;
+  z-index: 10;
+}
+
+.trip-menu-dropdown button {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.trip-menu-dropdown button:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.trip-menu.open .trip-menu-dropdown {
+  display: block;
+}
+
+/* ===============================
+   MODAL CONTENT
+================================ */
+
+#modalContent h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 6px;
+}
+
+#modalContent h4 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+#modalContent p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(47, 19, 107, 0.8);
+}
+
+/* ---------- LISTS ---------- */
+
+#modalContent ul {
+  padding-left: 18px;
+  margin: 6px 0;
+}
+
+#modalContent li {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: rgba(47, 19, 107, 0.85);
+  margin-bottom: 4px;
+}
+
+
 /* =====================================================
    ABOUT PAGE
 ===================================================== */
@@ -698,7 +1212,6 @@ p, a, input, select, button {
 .about-page {
   display: flex;
   flex-direction: column;
-  gap: 80px;
 }
 
 .about-grid {
@@ -824,6 +1337,47 @@ p, a, input, select, button {
   font-size: 13px;
   color: rgba(47, 19, 107, 0.7);
 }
+
+@media (max-width: 768px) {
+
+  /* ===============================
+     ABOUT PAGE
+  =============================== */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-card {
+    padding: 32px 24px;
+    gap: 32px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-icon {
+    margin-bottom: 8px;
+  }
+
+  .about-team h2 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-card {
+    padding: 20px;
+  }
+}
+
 
 /* =====================================================
    FOOTER

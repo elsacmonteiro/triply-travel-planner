@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Trip – Triply</title>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
   <div class="navbar-inner">
@@ -18,7 +21,7 @@
 
     <nav class="nav-menu">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="add-trip.html" class="nav-link">Add Trip</a>
+      <a href="add-trip.html" class="nav-link active">Add Trip</a>
       <a href="trips.html" class="nav-link">Trips</a>
       <a href="about.html" class="nav-link">About</a>
     </nav>
@@ -32,7 +35,7 @@
   </div>
 </header>
 
-
+<!-- ================= MAIN ================= -->
 
 <main class="page add-trip-page">
 
@@ -41,61 +44,223 @@
     <p>Fill in the details below to add a new adventure.</p>
   </header>
 
-  <section class="card">
-    <form id="tripForm" class="trip-form">
+  <section class="add-trip-layout">
 
-      <div class="form-row">
+    <!-- ========== LEFT CARD: FORM ========== -->
+    <section class="card form-card">
+
+      <form id="tripForm" class="trip-form">
+
+        <!-- DESTINATION + COUNTRY -->
+        <div class="form-row">
+          <label>
+            Destination
+            <input
+              type="text"
+              name="destination"
+              required
+              placeholder="Enter destination"
+            >
+          </label>
+
+          <label>
+            Country
+            <select
+              id="countrySelect"
+              name="country"
+              required
+            >
+              <option value="">Select country</option>
+              <option>Afghanistan</option>
+              <option>Albania</option>
+              <option>Algeria</option>
+              <option>Andorra</option>
+              <option>Angola</option>
+              <option>Antigua and Barbuda</option>
+              <option>Argentina</option>
+              <option>Armenia</option>
+              <option>Australia</option>
+              <option>Austria</option>
+              <option>Azerbaijan</option>
+              <option>Bahamas</option>
+              <option>Bahrain</option>
+              <option>Bangladesh</option>
+              <option>Barbados</option>
+              <option>Belgium</option>
+              <option>Belize</option>
+              <option>Benin</option>
+              <option>Bolivia</option>
+              <option>Bosnia and Herzegovina</option>
+              <option>Botswana</option>
+              <option>Brazil</option>
+              <option>Brunei</option>
+              <option>Bulgaria</option>
+              <option>Burkina Faso</option>
+              <option>Burundi</option>
+              <option>Cambodia</option>
+              <option>Cameroon</option>
+              <option>Canada</option>
+              <option>Chile</option>
+              <option>China</option>
+              <option>Colombia</option>
+              <option>Costa Rica</option>
+              <option>Croatia</option>
+              <option>Cuba</option>
+              <option>Cyprus</option>
+              <option>Czech Republic</option>
+              <option>Denmark</option>
+              <option>Dominican Republic</option>
+              <option>Ecuador</option>
+              <option>Egypt</option>
+              <option>Estonia</option>
+              <option>Finland</option>
+              <option>France</option>
+              <option>Germany</option>
+              <option>Greece</option>
+              <option>Hungary</option>
+              <option>Iceland</option>
+              <option>India</option>
+              <option>Indonesia</option>
+              <option>Ireland</option>
+              <option>Israel</option>
+              <option>Italy</option>
+              <option>Japan</option>
+              <option>Kenya</option>
+              <option>Luxembourg</option>
+              <option>Malaysia</option>
+              <option>Mexico</option>
+              <option>Morocco</option>
+              <option>Netherlands</option>
+              <option>New Zealand</option>
+              <option>Norway</option>
+              <option>Poland</option>
+              <option>Portugal</option>
+              <option>Romania</option>
+              <option>Spain</option>
+              <option>Sweden</option>
+              <option>Switzerland</option>
+              <option>Thailand</option>
+              <option>Turkey</option>
+              <option>United Kingdom</option>
+              <option>United States</option>
+              <option>Vietnam</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- DATES -->
+        <div class="form-row">
+          <label>
+            Start Date
+            <input type="date" name="startDate" required>
+          </label>
+
+          <label>
+            End Date
+            <input type="date" name="endDate" required>
+          </label>
+        </div>
+
+        <!-- TYPE -->
         <label>
-          Destination
-          <input type="text" name="destination" required>
+          Trip Type
+          <select name="type">
+            <option>Vacation</option>
+            <option>Business</option>
+            <option>Adventure</option>
+            <option>Family</option>
+            <option>Other</option>
+          </select>
         </label>
 
+        <!-- NOTES -->
         <label>
-          Country
-          <input type="text" name="country" required>
+          Notes
+          <textarea name="notes" placeholder="Optional notes..."></textarea>
         </label>
+
+        <!-- DOCUMENTS -->
+        <label>
+          Documents (PDF)
+          <input
+            type="file"
+            id="documents"
+            name="documents"
+            accept="application/pdf"
+            multiple
+          >
+        </label>
+
+        <!-- PLACES TO VISIT -->
+        <div class="places-field">
+          <label>Places to visit</label>
+
+          <div class="places-input">
+            <input
+              type="text"
+              id="placeInput"
+              placeholder="Add a place..."
+            >
+            <button
+              type="button"
+              id="addPlaceBtn"
+              class="btn login"
+            >+</button>
+          </div>
+
+          <ul id="placesList"></ul>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="btn primary full">
+          Add Trip
+        </button>
+
+      </form>
+    </section>
+
+    <!-- ========== RIGHT CARD: HIGHLIGHTS ========== -->
+    <aside class="card highlights-card">
+
+      <h3>Popular Countries</h3>
+
+      <div class="segmented-control">
+        <button type="button" class="active" data-region="europe">Europe</button>
+        <button type="button" data-region="asia">Asia</button>
+        <button type="button" data-region="america">America</button>
       </div>
 
-      <div class="form-row">
-        <label>
-          Start Date
-          <input type="date" name="startDate" required>
-        </label>
+      <div class="country-highlights">
+        <div class="country-item active" data-region="europe">
+          <img src="images/europe.jpg" alt="Europe">
+          <h4>Europe</h4>
+          <p>Discover Paris, London, Rome and more.</p>
+        </div>
 
-        <label>
-          End Date
-          <input type="date" name="endDate" required>
-        </label>
+        <div class="country-item" data-region="asia">
+          <img src="images/asia.jpg" alt="Asia">
+          <h4>Asia</h4>
+          <p>Explore Tokyo, Bangkok, Bali and beyond.</p>
+        </div>
+
+        <div class="country-item" data-region="america">
+          <img src="images/america.jpg" alt="America">
+          <h4>America</h4>
+          <p>Visit New York, Rio, Los Angeles and more.</p>
+        </div>
       </div>
 
-      <label>
-        Trip Type
-        <select name="type">
-          <option>Vacation</option>
-          <option>Business</option>
-          <option>Adventure</option>
-          <option>Family</option>
-          <option>Other</option>
-        </select>
-      </label>
+    </aside>
 
-      <label>
-        Notes
-        <textarea name="notes" placeholder="Optional notes..."></textarea>
-      </label>
-
-      <button type="submit" class="btn primary full">
-        Add Trip
-      </button>
-
-    </form>
   </section>
-
 </main>
+
+<!-- ================= SCRIPTS ================= -->
 
 <script src="js/add-trip.js"></script>
 <script src="js/navbar.js"></script>
 
 </body>
 </html>
+
 
