@@ -1432,6 +1432,13 @@ textarea::placeholder {
     font-size: 15px;
   }
 
+  .trip-form input,
+  .trip-form select,
+  .trip-form textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
   /* -------- FILTERS -------- */
 
   .filters-card {
